@@ -1,0 +1,58 @@
+{% extends 'my_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="form_wrapper">
+    <div class="form_container">
+        <div class="title_container">
+            <h2>Formulaire de connexion</h2>
+        </div>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="row clearfix">
+            <div class="">
+                <form method="post" action="">
+                    {% csrf_token %}
+                    <div class="input_field">
+                        <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                        {{ form.username }}
+                    </div>
+                    {% if form.username.errors %}
+                    <div class="error_bubble">
+                        {% for error in form.username.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <div class="input_field">
+                        <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        {{ form.password }}
+                    </div>
+                    {% if form.password.errors %}
+                    <div class="error_bubble">
+                        {% for error in form.password.errors %}
+                        <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <input class="button" type="submit" value="Se connecter">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var form_fields = document.getElementsByTagName('input');
+    form_fields[1].placeholder = "Nom d'utilisateur";
+</script>
+{% endblock %}
+{% block extracss %}
+<link rel="stylesheet" href="{% static '/css/register.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}

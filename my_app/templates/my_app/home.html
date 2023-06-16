@@ -1,0 +1,36 @@
+
+
+{% extends 'my_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="sect1" style="background-image: url('{% static 'img/sect1_bg.jpg' %}')">
+    <h1>Bienvenue sur la plateforme de gestion des permissions</h1>
+    <div id="card-container">
+        <div class="card" id="card-1">
+            <div class="circle">
+                <img src="{% static '/img/plus.png' %}" alt="">
+            </div>
+            <h3>S'enregister</h3>
+            <button onclick="window.location.href='/register'" id="btn-1">Aller à</button>
+        </div>
+        <div class="card" id="card-2">
+            <div class="circle">
+                <img src="{% static '/img/password-manager.png' %}" alt="">
+            </div>
+            <h3>Se connecter</h3>
+            <button onclick="window.location.href='/login'" id="btn-2">Aller à</button>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lilita+One:100,200,400,300,500,600,700" rel="stylesheet">
+
+{% endblock %}
+

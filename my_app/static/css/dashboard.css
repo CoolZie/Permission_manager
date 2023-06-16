@@ -1,0 +1,112 @@
+body{
+    
+    margin: auto;
+}
+
+
+.titre-1{
+    font-family: "Lilita One",sans-serif;
+    color: rgb(98, 98, 232);
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.titre-3{
+    font-family: "Poppins",sans-serif;
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    /* margin-top: 0; */
+}
+
+.titre-4{
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    /* margin-top: 0; */
+}
+
+.div-2{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 70px;
+
+}
+
+.div-2 ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(98, 98, 232);
+    /* border-radius: 30px; */
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-family: "Lilita One",sans-serif;
+}
+
+
+
+
+li span{
+    margin-left: 300px;
+    color: rgb(255, 168, 7);
+}
+
+th{
+    font-family: "Poppins",sans-serif;
+    font-size: 15px;
+    text-align: center;
+    /* width: 60px; */
+    /* margin-top: 0; */
+}
+
+td{
+    font-family: "Times New Roman",sans-serif;
+    font-size: 15px;
+    text-align: center;
+    width: 400px;
+
+}
+
+input{
+    font-family: "Poppins",sans-serif;
+}
+
+.div-3{
+    margin-bottom: 100px;
+
+}
+
+
+.onglet{
+    /* background-color: rgb(255, 168, 7); */
+    color: white;
+    align-content: center;
+    text-decoration: none;
+
+}
+
+.onglet:hover{
+    background-color: rgb(255, 168, 7);
+    color: white;
+    height: 100%;
+    align-content: center;
+    text-decoration: none;
+}
+
+
+
+
+
+/* .onglet{
+    cursor: none;
+} */
+

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static '/css/base.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permission manager</title>
+    {% block extracss %}{% endblock %}
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <header>
+        <nav>
+            <div id="header_div">
+                <img id="header_img" src="{% static '/img/meditation.png' %}" alt="">
+                <!-- <img id="header_img" src="meditation.png" alt=""> -->
+                <div id="header_div2">
+                    <span id="span_p">P</span><span>ermission</span>
+                    <span id="span_m">M</span><span>anager</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <nav>
+        <!-- Contenu de la barre de navigation -->
+    </nav>
+    
+    <main>
+        {% block content %}
+        <!-- Contenu spécifique à chaque page -->
+        {% endblock %}
+    </main>
+    
+
+    <footer class="footer-distributed">
+
+        <div class="footer-right">
+
+            <a href="#">
+                <img src="{% static '/img/github.png' %}" alt="">
+            </a>
+            <a href="#">
+                <img src="{% static '/img/linkedin.png' %}" alt="">
+            </a>
+            <a href="#">
+                <img src="{% static '/img/google.png' %}" alt="">
+            </a>
+
+        </div>
+
+        <div class="footer-left">
+
+            <p class="footer-links">
+                <a class="link-1" href="#">Home</a>
+
+                <a href="#">About</a>
+
+                <a href="#">Faq</a>
+
+                <a href="#">Contact</a>
+            </p>
+
+            <p>Anderson Edoh &copy; 2023</p>
+        </div>
+
+    </footer>
+</body>
+</html>

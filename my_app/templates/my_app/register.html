@@ -1,0 +1,163 @@
+
+
+
+{% extends 'my_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Formulaire d'inscription</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form method="post" action=""  enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row clearfix">
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  {{ form.username }}
+                </div>
+                {% if form.username.errors %}
+                  <div class="error_bubble">
+                    {% for error in form.username.errors %}
+                      <p>{{ error }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+              <div class="col_half">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  {{ form.full_name }}
+                </div>
+                {% if form.full_name.errors %}
+                  <div class="error_bubble">
+                    {% for error in form.full_name.errors %}
+                      <p>{{ error }}</p>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="other_div">
+              <div>{{ form.gender.label }}:</div> 
+              {{ form.gender }}
+              {% if form.gender.errors %}
+                <div class="error_bubble">
+                  {% for error in form.gender.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-building"></i></span>
+              {{ form.department }}
+              {% if form.department.errors %}
+                <div class="error_bubble">
+                  {% for error in form.department.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-building"></i></span>
+              {{ form.position }}
+              {% if form.position.errors %}
+                <div class="error_bubble">
+                  {% for error in form.position.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="other_div">
+              <div>{{ form.hire_date.label }}:</div>
+              {{ form.hire_date }}
+              {% if form.hire_date.errors %}
+                <div class="error_bubble">
+                  {% for error in form.hire_date.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-phone"></i></span>
+              {{ form.phone_no }}
+              {% if form.phone_no.errors %}
+                <div class="error_bubble">
+                  {% for error in form.phone_no.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+              {{ form.email }}
+              {% if form.email.errors %}
+                <div class="error_bubble">
+                  {% for error in form.email.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="other_div">
+              <div>{{ form.photo.label }} </div>
+              {{ form.photo }}
+              {% if form.photo.errors %}
+                <div class="error_bubble">
+                  {% for error in form.photo.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="other_div">
+                {{ form.is_admin.label}}{{ form.is_admin }}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              {{ form.password1 }}
+              {% if form.password1.errors %}
+                <div class="error_bubble">
+                  {% for error in form.password1.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+              {{ form.password2 }}
+              {% if form.password2.errors %}
+                <div class="error_bubble">
+                  {% for error in form.password2.errors %}
+                    <p>{{ error }}</p>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+            <input class="button" type="submit" value="Enregistrer"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var form_fields = document.getElementsByTagName('input');
+    form_fields[1].placeholder = "Username";
+    form_fields[2].placeholder = "Nom complet";
+    form_fields[3].placeholder = "Departement";
+    form_fields[4].placeholder = "Position";
+    form_fields[7].placeholder = "Email     ex. abc@gmail.com";
+   //  form_fields[7].placeholder = "Entrez votre mot de passe";
+   //  form_fields[8].placeholder = "Confirmez votre mot de passe";
+   </script>
+   
+{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static '/css/register.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+

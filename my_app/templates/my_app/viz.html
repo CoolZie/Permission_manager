@@ -1,0 +1,131 @@
+{% extends 'my_app/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section>
+    <div class="div-2">
+    
+    <ul>
+        <a class="onglet" href="{% url 'my_app:dashboard' %}"><li ><i class="fa fa-user" ></i> Mon profil</li></a>
+        <a class="onglet" href="{%  url 'my_app:permission_list' %}"><li><i class="fa fa-list"></i> Liste des demandes</li></a>
+        <a class="onglet" href="{%  url 'my_app:visualisation' %}"><li><i class="fa fa-table"></i> Dashboard</li></a>
+        <a class="onglet" href="{% url 'my_app:logout' %}"><li ><i class="fa fa-arrow-left"></i> Se deconnecter</li></a>
+        
+        <li>
+           
+            <span>  
+                <i class="fa fa-user"></i>
+                Bienvenue, {{user.username}}
+            </span>
+        </li>
+    </ul>
+
+  </div>
+
+  <h2 class="titre-1">Dashboard</h2>
+  <div  class="niv-1">
+    
+    <div class="niv-2">
+      <img src="{% static  '/img/teamwork.png' %}" alt="">
+      <div class="niv-3">
+        <div class="text">Nombre d'employés</div>
+        <div class="number">{{total_employees}}</div>
+      </div>    
+    </div>
+
+    <div class="niv-2">
+      <img src="{% static  '/img/teamwork.png' %}" alt="">
+      <div class="niv-3">
+        <div class="text">Nombre d'employés</div>
+        <div class="number">{{total_employees}}</div>
+      </div>    
+    </div>
+
+    <div class="niv-2">
+      <img src="{% static  '/img/teamwork.png' %}" alt="">
+      <div class="niv-3">
+        <div class="text">Nombre d'employés</div>
+        <div class="number">{{total_employees}}</div>
+      </div>    
+    </div>
+
+    <div class="niv-2">
+      <img src="{% static  '/img/teamwork.png' %}" alt="">
+      <div class="niv-3">
+        <div class="text">Nombre d'employés</div>
+        <div class="number">{{total_employees}}</div>
+      </div>    
+    </div>
+  </div>
+
+    <!-- Répartition par genre -->
+
+  <div class="box">
+    <div class="box-1">
+      <h3>Répartition par genre</h3>
+      <canvas id="gender-chart"></canvas>
+    </div>
+
+    <div class="box-1">
+      <h3>Répartition par departement</h3>
+      <canvas id="department-chart"></canvas>
+    </div>
+
+  </div>
+
+
+</section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-labels@1.1.0/dist/chartjs-plugin-labels.min.js"></script>
+
+<script>
+  // Répartition par genre
+  var total_male =  JSON.parse("{{total_male|escapejs}}")
+  var total_female =  JSON.parse("{{total_female|escapejs}}")
+  var gender = [total_male, total_female]
+  var genderChart = new Chart(document.getElementById('gender-chart'), {
+  type: 'pie',
+  data: {
+    labels: ['Masculin', 'Féminin'],
+    datasets: [{
+      data: gender,
+      backgroundColor: ['#36a2eb', '#ff6384']
+    }]
+  },
+  options: {
+    maintainAspectRatio: false,
+    responsive: true,
+    plugins: {
+      labels: {
+        render: 'percentage',
+        precision: 1,
+        fontColor: '#fff',
+        fontSize: 12,
+        fontStyle: 'bold'
+      }
+    }
+  }
+});
+</script>
+
+
+{% endblock %}
+
+{% block extracss %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/viz.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/permission_request.css' %}">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css?family=Lilita+One:100,200,400,300,500,600,700" rel="stylesheet">
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" crossorigin="anonymous"> -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> -->
+
+{% endblock %}
+
+{% block extrajs %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
